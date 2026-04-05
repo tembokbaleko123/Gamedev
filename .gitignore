@@ -1,0 +1,42 @@
+# Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+
+# Unity generated
+*.pidb
+*.unityproj
+*.suo
+*.tmp
+*.user
+*.userprefs
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.sln
+
+# Packages
+Packages/
+
+# UnityTechnologies
+UnityTechnologies/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Solution
+*.slnx
+
+# Logs
+Logs/
+
+# User Settings
+UserSettings/
+
+# Build
+Assembly*.csproj
