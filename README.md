@@ -141,6 +141,24 @@ Assets/
 
 ## Credits
 
-- Character: Y Bot / X Bot
-- Audio: Various sources
-- Particle Effects: Unity Particle Pack
+### Free Assets Used
+
+- **Characters (Y Bot / X Bot)**
+  - Source: Mixamo (https://www.mixamo.com)
+  - Free 3D characters with animations
+
+- **Audio / Sound Effects**
+  - Source: Freesound (https://freesound.org)
+  - Source: Various free sound libraries
+
+- **Environment**
+  - Unity Terrain URP Demo Scene: https://assetstore.unity.com/packages/3d/environments/unity-terrain-urp-demo-scene-213197
+
+- **Particle Effects**
+  - Unity Particle Pack (built-in)
+
+---
+
+## License
+
+This project uses free assets for development purposes. Please refer to each asset provider's license for usage terms.
