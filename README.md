@@ -6,13 +6,14 @@ Third-person hack and slash game built with Unity 3D (URP) and Unity Input Syste
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| Day 1 | Combat Dasar + Health System | ✅ DONE |
-| Day 2 | Hit Feedback (VFX, SFX, Squash) | ✅ DONE |
-| Day 3 | Weapon Feel (Trail, Slash, Swing) | ✅ DONE |
-| Day 4 | Enemy AI (Chase, Rotate, NavMeshAgent) | ✅ DONE |
-| Day 5 | Enemy Attack + Player Damage | ✅ DONE |
-| Day 6 | Combo + Arena + Win/Lose | ⏳ IN PROGRESS |
-| Day 7 | Polish + Win/Lose | ⏳ TODO |
+| Day 1 | Combat Dasar + Health System | DONE |
+| Day 2 | Hit Feedback (VFX, SFX, Squash) | DONE |
+| Day 3 | Weapon Feel (Trail, Slash, Swing) | DONE |
+| Day 4 | Enemy AI (Chase, Rotate, NavMeshAgent) | DONE |
+| Day 5 | Enemy Attack + Player Damage | DONE |
+| Day 5.5 | Player Combo Attack (3-hit) | DONE |
+| Day 6 | Arena + Wave System + Win/Lose | DONE |
+| Day 7 | Polish | DONE |
 
 ---
 
@@ -47,21 +48,22 @@ Third-person hack and slash game built with Unity 3D (URP) and Unity Input Syste
 - Player health UI slider
 - Player death and scene restart
 
----
+### Day 5.5 - Player Combo Attack
+- 3-hit combo system with input buffering
+- Animation events for damage sync
+- Combo counter (1 -> 2 -> 3 -> 1 loop)
 
-## Current Progress
+### Day 6 - Arena + Wave System
+- WaveData ScriptableObject for wave configuration
+- ArenaManager with enemy spawning
+- GameManager with game states (PreGame, Playing, Won, Lost)
+- GameUI with Start/Gameplay/GameOver/Win screens
+- Player spawn point reset on restart
 
-### Day 5 COMPLETED ✅
-- Enemy AI with attack animations
-- Combo system (Attack1 → Attack2 → Attack3)
-- EnemyAttackCollider for hit detection
-- PlayerHealth.cs with damage handling
-- PlayerHealthUI.cs with slider
-
-### Day 6 TODO
-- Arena/Wave system
-- Win condition (kill all enemies)
-- Lose condition (player HP = 0)
+### Day 7 - Polish
+- Wave UI timing fix
+- Enemy count tracking
+- Player dying animation fix
 
 ---
 
@@ -73,33 +75,37 @@ Assets/
 │   ├── Player/
 │   │   ├── Controller/
 │   │   │   ├── CharController.cs    # Movement, Sprint, Rotation
-│   │   │   └── FollowCamera.cs     # Third-person camera
+│   │   │   └── FollowCamera.cs      # Third-person camera
 │   │   ├── Attack/
-│   │   │   ├── PlayerAttack.cs     # Attack trigger
-│   │   │   ├── WeaponDamage.cs     # Damage collider
+│   │   │   ├── PlayerAttack.cs       # 3-hit combo system
+│   │   │   ├── WeaponDamage.cs       # Damage collider
 │   │   │   └── AnimationEventRelay.cs
-│   │   ├── PlayerHealth.cs         # HP system
-│   │   └── PlayerHealthUI.cs       # Health slider
+│   │   ├── PlayerHealth.cs           # HP system
+│   │   └── PlayerHealthUI.cs         # Health slider
 │   ├── Enemy/
-│   │   ├── EnemyAi.cs              # AI state machine
-│   │   ├── Health.cs               # Enemy HP
-│   │   ├── EnemyAttackCollider.cs   # Hit detection
+│   │   ├── EnemyAi.cs               # AI state machine
+│   │   ├── Health.cs                # Enemy HP
+│   │   ├── EnemyAttackCollider.cs    # Hit detection
 │   │   └── EnemyAnimationEventRelay.cs
 │   ├── Combat/
-│   │   └── WeaponTrail.cs         # Slash trail
+│   │   └── WeaponTrail.cs           # Slash trail
+│   ├── Arena/
+│   │   ├── ArenaManager.cs          # Wave spawning
+│   │   ├── GameManager.cs           # Game state
+│   │   ├── GameUI.cs                # UI screens
+│   │   └── WaveData.cs              # Wave config
 │   └── Audio/
-│       └── ...                     # SFX handlers
+│       ├── AudioEventRelay.cs       # Swing SFX
+│       ├── WeaponAudio.cs           # Random pitch
+│       ├── FootstepAudio.cs         # Placeholder
+│       └── HealthAudio.cs           # Hit/death SFX
 ├── Characters/
-│   └── X Bot/
+│   ├── X Bot/
+│   └── Y Bot/
 │       └── Animations/
-│           ├── X Bot Controller.controller
-│           ├── Attack/
-│           │   ├── Attack1.anim    # Boxing-Blow Cut
-│           │   ├── Attack2.anim    # Boxing-Left Hand
-│           │   └── Attack3.anim    # Punching
-│           ├── Locomotion/
-│           │   └── Standard Run.anim
-│           └── Dying.anim
+│           └── Y Bot Anim.controller
+├── InputManager/
+│   └── InputChar.cs                 # Input actions
 └── Scenes/
     └── SampleScene.unity
 ```
@@ -125,8 +131,16 @@ Assets/
 
 ---
 
+## TODO (Future)
+
+- FootstepAudio implementation
+- Screen shake on damage
+- More polish...
+
+---
+
 ## Credits
 
-- Character: X Bot
+- Character: Y Bot / X Bot
 - Audio: Various sources
 - Particle Effects: Unity Particle Pack
