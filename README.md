@@ -6,7 +6,7 @@ Third-person hack and slash game built with Unity 3D (URP) and Unity Input Syste
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| Day 1 | Combat Dasar + Health System | DONE |
+| Day 1 | Basic Combat + Health System | DONE |
 | Day 2 | Hit Feedback (VFX, SFX, Squash) | DONE |
 | Day 3 | Weapon Feel (Trail, Slash, Swing) | DONE |
 | Day 4 | Enemy AI (Chase, Rotate, NavMeshAgent) | DONE |
